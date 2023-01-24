@@ -18,26 +18,36 @@ function eleccion(jugada) {
     }
     return resultado;
 }
-function combate(jugador,pc) {
-    let resultadoo = "";
+
+let jugador = 0;
+let pc = 0;
+let triunfos = 0;
+let perdidas = 0;
+
+while (triunfos < 3 && perdidas < 3) {
+    pc = aleatorio(1, 3);
+    jugador = prompt("Elige: 1 para piedra, 2 para papel, 3 para tijera");
+    alert("Tu eliges: " + eleccion(jugador))
+    alert("Pc elige: " + eleccion(pc))
     if (jugador == pc) {
-        resultadoo ="Empate";
+        alert("Empate");
     } else if (jugador == 1 && pc == 3 || jugador == 3 && pc == 2 || jugador == 2 && pc == 12) {
-        resultadoo = "Ganaste";
+        alert("Ganaste");
+        triunfos = triunfos + 1;
     } else {
-        resultadoo = "Perdiste";
+        alert("Perdiste");
+        perdidas = perdidas + 1;
     }
-    return resultadoo;
 }
-let jugador;
-let pc = aleatorio(1, 3);
-jugador = prompt("Elige: 1 para piedra, 2 para papel, 3 para tijera");
+alert("Ganastes " + triunfos  + " veces. " + "Perdistes " +  perdidas +  " veces ")
 
-alert("Tu eliges: " + eleccion(jugador))
 
-alert("Pc elige: " + eleccion(pc))
 
-alert(combate(jugador, pc))
+
+
+
+
+
 
 
 
