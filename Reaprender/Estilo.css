@@ -1,3 +1,62 @@
-body{
-    background-color: aquamarine;
+body {
+    font-family: sans-serif;
+}
+
+button {
+    font-size: medium;
+}
+
+#Fuego:hover {
+    border-width: 4px;
+    border-radius: 12px;
+    border-color: orangered;
+}
+
+#Agua:hover {
+    border-width: 4px;
+    border-radius: 12px;
+    border-color: aqua;
+}
+
+#Planta:hover {
+    border-width: 4px;
+    border-radius: 12px;
+    border-color: greenyellow;
+}
+
+#mascota:hover {
+    border-width: 4px;
+    border-radius: 12px;
+    border-top-color: orangered;
+    border-left-color: aqua;
+    border-right-color: aqua;
+    border-bottom-color: greenyellow;
+}
+
+#reini:hover {
+    border-width: 4px;
+    border-radius: 12px;
+    border-top-color: orangered;
+    border-left-color: aqua;
+    border-right-color: aqua;
+    border-bottom-color: greenyellow;
+}
+
+#fire:hover {
+    color: orangered;
+}
+
+#water:hover {
+    color: rgb(114, 226, 189);
+}
+
+#plant:hover {
+    color: rgb(19, 196, 19);
+}
+
+#ganador:hover{
+    color: aqua;
+} 
+#perdedor:hover{
+    color: red;
 }

@@ -1,14 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Estilo.css">
-    <script src="Codigo.js"></script>
-    <title>Piedra, Papel, Tijera</title>
+    <script src="/JavaScript/Codigo.js"></script>
+    <title>Mokepon</title>
 </head>
+
 <body>
-    <h1>Piedra, Papel, Tijera</h1>
+    <h1>Mokepon 🔥💧🌿</h1>
+    <section id="seleccionar">
+        <h2>Elige tu Pokemascota:</h2>
+        <label for="charmander"><a id="fire">Charmander => Fuego</a></label>
+        <input type="radio" name="elige" id="charmander">
+        <br>
+        <br>
+        <label for="squirtle"><a id="water"> Squirtle => Agua</a></label>
+        <input type="radio" name="elige" id="squirtle">
+        <br>
+        <br>
+        <label for="bulbasur"><a id="plant"> Bulbasur => Planta</a></label>
+        <input type="radio" name="elige" id="bulbasur">
+        <br>
+        <!--
+        <br>
+        <a id="plant"> Trecko => Planta y <a id="water">Agua</a></a>
+        <input type="radio" name="elige" id="Trecko">
+        <br>
+        <br>
+        <a id="fire">Moltres => Fuego y <a id="plant"> Planta</a></a>
+        <input type="radio" name="elige" id="Moltres">
+        <br>
+        <br>
+        <a id="plant">Snorlax => Planta Y <a id="water"> Agua</a></a>
+
+        <input type="radio" name="elige" id="Snorlax">
+        -->
+        <br>
+
+        <button type="button" id="mascota">Seleccionar</button>
+    </section>
+    <br>
+
+    <section id="seleccionar-ataque">
+        <h2>Elige tus ataques</h2>
+        <p>
+            <button type="button" id="Fuego">Fuego 🔥</button>
+            <button type="button" id="Agua">Agua 💧</button>
+            <button type="button" id="Planta">Planta 🌿</button>
+        </p>
+        <p>Tu <span id="tu-mascota">???</span> tiene <span id="nuestra-vida">❤️❤️❤️</span> Corazones</p>
+        <p>Tu ataque es <span id="tu-ataque">???</span></p>
+        
+        <p>El <span id="su-mascota"> ??? </span> enemigo tiene <span id="su-vida">❤️❤️❤️</span> Corazones</p>
+        <p>El ataque enemigo es <span id="ataque-enemigo">???</span></p>
+        <br>
+    </section>
+    <section id="">
+        <p>Tu <span id="tu-mascota1"> ??? </span> ataco con <span id="tu-ataque1">???</span>, El <span id="su-mascota1">???</span> del enemigo ataco con <span id="ataque-enemigo1">???</span> <span id="mensaje"></span></p>
+    </section>
+
+    <section id="reiniciar">
+        <button type="button" id="reini">reiniciar</button>
+    </section>
 </body>
+
 </html>
