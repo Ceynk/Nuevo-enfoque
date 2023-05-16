@@ -1,5 +1,39 @@
+function cargaCompleta() {
+    let sectionReiniciar = document.getElementById("reiniciar");
+    sectionReiniciar.style.display = 'none';
+
+    let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
+    sectionSeleccionarAtaque.style.display = 'none';
+
+
+    let mascotaJugador = document.getElementById("mascota");
+    mascotaJugador.addEventListener('click', seleccionarMascotaJugador)
+    mascotaJugador.addEventListener('click', seleccionarMascotaEnemiga)
+    //  alert("Carga completa")
+
+    let botonFuego = document.getElementById('Fuego');
+    botonFuego.addEventListener('click', ataqueFuego);
+    botonFuego.addEventListener('click', ataqueEnemigoAl)
+
+    let botonAgua = document.getElementById('Agua');
+    botonAgua.addEventListener('click', ataqueAgua);
+    botonAgua.addEventListener('click', ataqueEnemigoAl)
+
+    let botonPlanta = document.getElementById('Planta');
+    botonPlanta.addEventListener('click', ataquePlanta);
+    botonPlanta.addEventListener('click', ataqueEnemigoAl)
+
+    let botonReinciar = document.getElementById('reini')
+    reini.addEventListener('click', reiniciarJuego)
+}
 
 function seleccionarMascotaJugador() {
+    let sectionSeleccionarMascota = document.getElementById("seleccionar");
+    sectionSeleccionarMascota.style.display = 'none';
+
+    let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
+    sectionSeleccionarAtaque.style.display = 'block';
+
     if (document.getElementById("charmander").checked) {
         document.getElementById("tu-mascota").innerHTML = "Charmander";
         document.getElementById("tu-mascota1").innerHTML = "Charmander";
@@ -74,27 +108,6 @@ function ataqueEnemigoAl() {
     combate()
     victoria()
 }
-function cargaCompleta() {
-    let mascotaJugador = document.getElementById("mascota");
-    mascotaJugador.addEventListener('click', seleccionarMascotaJugador)
-    mascotaJugador.addEventListener('click', seleccionarMascotaEnemiga)
-    alert("Carga completa")
-
-    let botonFuego = document.getElementById('Fuego');
-    botonFuego.addEventListener('click', ataqueFuego);
-    botonFuego.addEventListener('click', ataqueEnemigoAl)
-
-    let botonAgua = document.getElementById('Agua');
-    botonAgua.addEventListener('click', ataqueAgua);
-    botonAgua.addEventListener('click', ataqueEnemigoAl)
-
-    let botonPlanta = document.getElementById('Planta');
-    botonPlanta.addEventListener('click', ataquePlanta);
-    botonPlanta.addEventListener('click', ataqueEnemigoAl)
-
-    let botonReinciar = document.getElementById('reini')
-    reini.addEventListener('click', reiniciarJuego)
-}
 
 function ataqueFuego() {
     ataqueJugador = 'FUEGO';
@@ -164,13 +177,14 @@ function combate() {
 }
 
 function victoria() {
-    if (vidasJugador == 0 ) {
+    if (vidasJugador == -1) {
         crearMensaje("perdiste la partida")
-    } else if (vidasEnemigo == 0) {
+    } else if (vidasEnemigo == -1) {
         crearMensaje("ganaste la partida")
     }
     else {
     }
+    
 }
 
 function mostrarMensajeTemporal(mensaje, duracion) {
@@ -193,13 +207,15 @@ function crearMensaje(resultado) {
 
     let botonFuego = document.getElementById('Fuego');
     botonFuego.disabled = true;
-    
+
     let botonAgua = document.getElementById('Agua');
-    botonAgua.disabled  = true; 
+    botonAgua.disabled = true;
 
     let botonPlanta = document.getElementById('Planta');
-    botonPlanta.disabled  = true;
-
+    botonPlanta.disabled = true;
+    
+    let sectionReiniciar = document.getElementById("reiniciar");
+    sectionReiniciar.style.display = 'block';
 }
 
 function reiniciarJuego() {
