@@ -78,7 +78,7 @@ function cargaCompleta() {
     let mascotaJugador = document.getElementById("mascota");
     mascotaJugador.addEventListener('click', seleccionarMascotaJugador)
     mascotaJugador.addEventListener('click', seleccionarMascotaEnemiga)
-    // alert("Carga completa")
+    alert("Carga completa")
 
     let botonFuego = document.getElementById('Fuego');
     botonFuego.addEventListener('click', ataqueFuego);
@@ -122,74 +122,81 @@ function combate() {
     let spanSuya = document.getElementById("su-vida");
 
     if (ataqueEnemigo == ataqueJugador) {
-        crearMensaje("Empate")
+        mostrarMensajeTemporal("Empate", 3000)
     }
     else if (ataqueJugador == 'FUEGO' && ataqueEnemigo == 'TIERRA') {
-        crearMensaje("Le quitaste 1 corazon")
+        mostrarMensajeTemporal("Le quitaste 1 corazon", 3000)
         vidasEnemigo--
         spanSuya.innerHTML = vidasEnemigo;
     }
-        else if (ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') {
-            crearMensaje("Le quitaste 2 corazones")
-            vidasEnemigo -= 2;
-            spanSuya.innerHTML = vidasEnemigo;
-        }
-        else if (ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA') {
-            crearMensaje("Le quitaste 2 corazones")
-            vidasEnemigo -= 2;
-            spanSuya.innerHTML = vidasEnemigo;
-        }
-       
-        else if (ataqueEnemigo == 'TIERRA' && ataqueJugador == 'AGUA') {
-            crearMensaje("Te quito 2 corazones")
-            vidasJugador-= 2;
-            spanNuestra.innerHTML = vidasJugador;
-        }
-        else if (ataqueEnemigo == 'AGUA' && ataqueJugador == 'FUEGO') {
-            crearMensaje("Te quito 2 corazones")
-            vidasJugador-= 2;
-            spanNuestra.innerHTML = vidasJugador;
-        }
-        else if (ataqueEnemigo == 'FUEGO' && ataqueJugador == 'TIERRA') {
-            crearMensaje("Te quito 1 corazon")
-            vidasJugador--;
-            spanNuestra.innerHTML = vidasJugador;
-        }
-       
-        else {
-        }   
+    else if (ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') {
+        mostrarMensajeTemporal("Le quitaste 2 corazones", 3000)
+        vidasEnemigo -= 2;
+        spanSuya.innerHTML = vidasEnemigo;
     }
-    function victoria() {
-        if (vidasJugador == 0) {
-            crearMensaje("perdiste la partida")
-        } else if(vidasEnemigo == 0) {
-            crearMensaje("ganaste la partida")
-        }
-        else{
-        }
-    }
-    
-    
-    
-    function crearMensaje(resultado) {
-        let sectionMensajes = document.getElementById('mensaje')
-
-        let parrafo = document.createElement('p')
-        parrafo.innerHTML = resultado;
-
-        sectionMensajes.appendChild(parrafo)
+    else if (ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA') {
+        mostrarMensajeTemporal("Le quitaste 1 corazon", 3000)
+        vidasEnemigo--;
+        spanSuya.innerHTML = vidasEnemigo;
     }
 
-
-    function aleatorio(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
+    else if (ataqueEnemigo == 'TIERRA' && ataqueJugador == 'AGUA') {
+        mostrarMensajeTemporal("Te quito 1 corazon", 3000)
+        vidasJugador--;
+        spanNuestra.innerHTML = vidasJugador;
+    }
+    else if (ataqueEnemigo == 'AGUA' && ataqueJugador == 'FUEGO') {
+        mostrarMensajeTemporal("Te quito 2 corazones", 3000)
+        vidasJugador -= 2;
+        spanNuestra.innerHTML = vidasJugador;
+    }
+    else if (ataqueEnemigo == 'FUEGO' && ataqueJugador == 'TIERRA') {
+        mostrarMensajeTemporal("Te quito 1 corazon", 3000)
+        vidasJugador--;
+        spanNuestra.innerHTML = vidasJugador;
     }
 
-    let pc = aleatorio(1, 3);
-    let ataqueJugador;
-    let ataqueEnemigo;
-    let vidasJugador = 3;
-    let vidasEnemigo = 3;
+    else {
+    }
+}
+function victoria() {
+    if (vidasJugador < 1) {
+        crearMensaje("perdiste la partida")
+    } else if (vidasEnemigo < 1) {
+        crearMensaje("ganaste la partida")
+    }
+    else {
+    }
+}
 
-    window.addEventListener('load', cargaCompleta);
+function mostrarMensajeTemporal(mensaje, duracion) {
+    const mensajeTemporal = document.getElementById("mensajeTemporal");
+    mensajeTemporal.textContent = mensaje;
+    mensajeTemporal.style.display = "block";
 
+    setTimeout(function () {
+        mensajeTemporal.style.display = "none";
+    }, duracion);
+}
+
+function crearMensaje(resultado) {
+    let sectionMensajes = document.getElementById('mensaje')
+
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = resultado;
+
+    sectionMensajes.appendChild(parrafo)
+}
+
+
+function aleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+let pc = aleatorio(1, 3);
+let ataqueJugador;
+let ataqueEnemigo;
+let vidasJugador = 3;
+let vidasEnemigo = 3;
+
+window.addEventListener('load', cargaCompleta);
