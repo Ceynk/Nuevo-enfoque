@@ -91,6 +91,9 @@ function cargaCompleta() {
     let botonPlanta = document.getElementById('Planta');
     botonPlanta.addEventListener('click', ataquePlanta);
     botonPlanta.addEventListener('click', ataqueEnemigoAl)
+
+    let botonReinciar = document.getElementById('reini')
+    reini.addEventListener('click', reiniciarJuego)
 }
 
 function ataqueFuego() {
@@ -159,10 +162,11 @@ function combate() {
     else {
     }
 }
+
 function victoria() {
-    if (vidasJugador < 1) {
+    if (vidasJugador == 0 ) {
         crearMensaje("perdiste la partida")
-    } else if (vidasEnemigo < 1) {
+    } else if (vidasEnemigo == 0) {
         crearMensaje("ganaste la partida")
     }
     else {
@@ -186,7 +190,25 @@ function crearMensaje(resultado) {
     parrafo.innerHTML = resultado;
 
     sectionMensajes.appendChild(parrafo)
+
+    let botonFuego = document.getElementById('Fuego');
+    botonFuego.disabled = true;
+    
+    let botonAgua = document.getElementById('Agua');
+    botonAgua.disabled  = true; 
+
+    let botonPlanta = document.getElementById('Planta');
+    botonPlanta.disabled  = true;
+
 }
+
+function reiniciarJuego() {
+    location.reload()
+}
+
+
+
+
 
 
 function aleatorio(min, max) {
