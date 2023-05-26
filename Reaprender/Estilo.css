@@ -1,5 +1,6 @@
 body {
     font-family: sans-serif;
+    background-color: azure;
 }
 
 button {
@@ -59,4 +60,9 @@ button {
 } 
 #perdedor:hover{
     color: red;
+}
+#cura:hover{
+    border-width: 4px;
+    border-radius: 12px;
+    border-color: pink;
 }
